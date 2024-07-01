@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "76455324551",
+    "project_id": "expanse-tracker-app-404e8",
+    "storage_bucket": "expanse-tracker-app-404e8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:76455324551:android:1fe470a40b98a81a8b8122",
+        "android_client_info": {
+          "package_name": "com.example.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCh5H1aITAcZD3Ai7hdXD0bRuvkFGziKF4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
