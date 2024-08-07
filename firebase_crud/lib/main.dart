@@ -1,7 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:myapp/firebase_options.dart';
-import 'package:myapp/service/forgot_password/forgot_password.dart';
+import 'package:myapp/forgot_password/forgot_password.dart';
 import 'package:myapp/signup_screen.dart';
 
 void main() async {

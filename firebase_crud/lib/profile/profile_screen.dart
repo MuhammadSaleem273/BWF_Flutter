@@ -182,7 +182,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ),
             child: const Text(
               'Update Profile',
-              style: TextStyle(color: Colors.black),
+              style: TextStyle(color: Colors.white),
             ),
           ),
         ],

@@ -1,53 +1,67 @@
-import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:task_6_ecommerce_app/my_models/product_model.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:task_6_ecommerce_app/my_models/product_model.dart'; // Adjust path as necessary
 
+class CartNotifier extends StateNotifier<List<CartItem>> {
+  CartNotifier() : super([]);
 
-
-class CartProvider extends ChangeNotifier {
-  final List<Product> _cart = [];
-  List<Product> get cart => _cart;
-  void toggleFavorite(Product product) {
-   
-
-    if (_cart.contains(product)) {
-      for (Product element in _cart) {
-        element.quantity++;
-      }
+  void addToCart(Product product) {
+    final existingItemIndex = state.indexWhere((item) => item.product == product);
+    
+    if (existingItemIndex != -1) {
+      // If product is already in the cart, increment its quantity
+      final existingItem = state[existingItemIndex];
+      state[existingItemIndex] = CartItem(product: existingItem.product, quantity: existingItem.quantity + 1);
     } else {
-      _cart.add(product);
+      // If product is not in the cart, add it
+      state = [...state, CartItem(product: product, quantity: 1)];
     }
-    notifyListeners();
+    // Trigger state update
+    state = [...state];
   }
 
-// for increment
-  incrementQtn(int index) {
-    _cart[index].quantity++;
-    notifyListeners();
+  void removeFromCart(int index) {
+    state = [...state]..removeAt(index);
   }
 
-  // for decrement
-  decrementQtn(int index) {
-    if (_cart[index].quantity <= 1) {
-      return;
+  void incrementQtn(int index) {
+    state[index] = CartItem(product: state[index].product, quantity: state[index].quantity + 1);
+    state = [...state];
+  }
+
+  void decrementQtn(int index) {
+    if (state[index].quantity > 1) {
+      state[index] = CartItem(product: state[index].product, quantity: state[index].quantity - 1);
+      state = [...state];
     }
-    _cart[index].quantity--;
-    notifyListeners();
   }
 
-  // for total amount
-  totalPrice() {
-    double myTotal = 0.0; // initial
-    for (Product element in _cart) {
-      myTotal += element.price * element.quantity;
+  void updateQuantity(Product product, int newQuantity) {
+    final existingItemIndex = state.indexWhere((item) => item.product == product);
+
+    if (existingItemIndex != -1) {
+      if (newQuantity > 0) {
+        state[existingItemIndex] = CartItem(product: state[existingItemIndex].product, quantity: newQuantity);
+      } else {
+        state = [...state]..removeAt(existingItemIndex);
+      }
+      state = [...state];
     }
-    return myTotal;
   }
 
-  static CartProvider of(BuildContext context, {bool listen = true}) {
-    return Provider.of<CartProvider>(
-      context,
-      listen: listen,
-    );
+  List<CartItem> get cartItems => state;
+
+  double totalPrice() {
+    return state.fold(0, (sum, item) => sum + (item.product.price * item.quantity));
   }
 }
+
+class CartItem {
+  final Product product;
+  int quantity;
+
+  CartItem({required this.product, this.quantity = 1});
+}
+
+final cartProvider = StateNotifierProvider<CartNotifier, List<CartItem>>(
+  (ref) => CartNotifier(),
+);

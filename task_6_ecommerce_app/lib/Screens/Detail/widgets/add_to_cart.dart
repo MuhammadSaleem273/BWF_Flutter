@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:task_6_ecommerce_app/my_models/product_model.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:task_6_ecommerce_app/Provider/add_to_cart_provider.dart';
+import 'package:task_6_ecommerce_app/my_models/product_model.dart';
 import 'package:task_6_ecommerce_app/constant.dart';
 
-class AddToCart extends StatefulWidget {
+class AddToCart extends ConsumerWidget {
   final Product product;
   const AddToCart({super.key, required this.product});
 
   @override
-  State<AddToCart> createState() => _AddToCartState();
-}
+  Widget build(BuildContext context, WidgetRef ref) {
+    final cartNotifier = ref.watch(cartProvider.notifier);
+    // ignore: unrelated_type_equality_checks
+    int quantity = ref.watch(cartProvider).indexWhere((item) => item == product) != -1
+        // ignore: unrelated_type_equality_checks
+        ? ref.watch(cartProvider)[ref.watch(cartProvider).indexWhere((item) => item == product)].quantity
+        : 1;
 
-class _AddToCartState extends State<AddToCart> {
-  int currentIndex = 1;
-
-  @override
-  Widget build(BuildContext context) {
-    final provider = CartProvider.of(context);
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 15),
       child: Container(
@@ -40,10 +40,9 @@ class _AddToCartState extends State<AddToCart> {
                 children: [
                   IconButton(
                     onPressed: () {
-                      if (currentIndex != 1) {
-                        setState(() {
-                          currentIndex--;
-                        });
+                      if (quantity > 1) {
+                        quantity--;
+                        ref.read(cartProvider.notifier).updateQuantity(product, quantity);
                       }
                     },
                     iconSize: 18,
@@ -54,7 +53,7 @@ class _AddToCartState extends State<AddToCart> {
                   ),
                   const SizedBox(width: 5),
                   Text(
-                    currentIndex.toString(),
+                    quantity.toString(),
                     style: const TextStyle(
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
@@ -63,9 +62,8 @@ class _AddToCartState extends State<AddToCart> {
                   const SizedBox(width: 5),
                   IconButton(
                     onPressed: () {
-                      setState(() {
-                        currentIndex++;
-                      });
+                      quantity++;
+                      ref.read(cartProvider.notifier).updateQuantity(product, quantity);
                     },
                     iconSize: 18,
                     icon: const Icon(
@@ -78,8 +76,8 @@ class _AddToCartState extends State<AddToCart> {
             ),
             GestureDetector(
               onTap: () {
-                provider.toggleFavorite(widget.product);
-          
+                cartNotifier.addToCart(product);
+
                 const snackBar = SnackBar(
                   content: Text(
                     "Successfully added!",
@@ -107,7 +105,7 @@ class _AddToCartState extends State<AddToCart> {
                   style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
-                      fontSize:16),
+                      fontSize: 16),
                 ),
               ),
             )

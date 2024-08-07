@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/firebase_function.dart';
-import 'package:myapp/service/forgot_password/forgot_password.dart';
+import 'package:myapp/forgot_password/forgot_password.dart';
 import 'package:myapp/signup_screen.dart';
 import 'custom_textfield.dart';
 

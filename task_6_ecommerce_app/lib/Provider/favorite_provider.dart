@@ -1,29 +1,22 @@
-import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:task_6_ecommerce_app/my_models/product_model.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:task_6_ecommerce_app/my_models/product_model.dart'; // Adjust path as necessary
 
+// StateNotifier to manage favorite products
+class FavoriteNotifier extends StateNotifier<List<Product>> {
+  FavoriteNotifier() : super([]);
 
-class FavoriteProvider extends ChangeNotifier {
-  final List<Product> _favorite = [];
-  List<Product> get favorites => _favorite;
   void toggleFavorite(Product product) {
-    if (_favorite.contains(product)) {
-      _favorite.remove(product);
+    if (state.contains(product)) {
+      state = state.where((item) => item != product).toList();
     } else {
-      _favorite.add(product);
+      state = [...state, product];
     }
-    notifyListeners();
   }
 
-  bool isExist(Product product) {
-    final isExist = _favorite.contains(product);
-    return isExist;
-  }
-
-  static FavoriteProvider of(BuildContext context, {bool listen = true}) {
-    return Provider.of<FavoriteProvider>(
-      context,
-      listen: listen,
-    );
-  }
+  List<Product> get favorites => state;
 }
+
+// Provider for favorite products
+final favoriteProvider = StateNotifierProvider<FavoriteNotifier, List<Product>>(
+  (ref) => FavoriteNotifier(),
+);

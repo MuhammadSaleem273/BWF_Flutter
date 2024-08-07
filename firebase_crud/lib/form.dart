@@ -25,12 +25,12 @@
 //           style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold),
 //         ),
 //         centerTitle: true,
-//         // leading: IconButton(
-//         //   icon: const Icon(Icons.arrow_back,color: Colors.blue,),
-//         //   onPressed: () {
-//         //     Navigator.pop(context);
-//         //   },
-//         // ),
+// leading: IconButton(
+//   icon: const Icon(Icons.arrow_back,color: Colors.blue,),
+//   onPressed: () {
+//     Navigator.pop(context);
+//   },
+// ),
 //       ),
 //       body: Center(
 //         child: Column(
@@ -80,13 +80,13 @@
 //                     "Item Name": itemnameController.text,
 //                     "Amount": amountController.text,
 //                     "Status": statusController.text,
-//                     "Id": Id, 
+//                     "Id": Id,
 //                   };
 //                   await DatabaseMethods()
 //                       .addDetails(detailsinfoMap , Id)
 //                       .then((value) {
 //                     Fluttertoast.showToast(
-                      
+
 //                         msg: "Details added Successfully",
 //                         toastLength: Toast.LENGTH_SHORT,
 //                         gravity: ToastGravity.CENTER,
@@ -98,10 +98,9 @@
 //                 },
 //                 style: ElevatedButton.styleFrom(
 
-//                     // shape: RoundedRectangleBorder(
-
-//                     //   borderRadius: BorderRadius.circular(20.0),
-//                     // ),
+// shape: RoundedRectangleBorder(
+//   borderRadius: BorderRadius.circular(20.0),
+// ),
 //                     ),
 //                 child: const Text('Add'),
 //               ),
