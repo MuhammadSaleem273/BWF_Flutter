@@ -1,0 +1,36 @@
+import 'package:flutter/material.dart';
+import 'package:hangu_pesco_complaints_system/user_screens/login_screen/signin.dart';
+
+void main() async {
+  runApp(const MyApp());
+
+  // WidgetsFlutterBinding.ensureInitialized();
+  // Firebase.initializeApp();
+  // await Firebase.initializeApp();
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+            //this style is for all complints screns lables just at upper at the teh textfield
+            textTheme: const TextTheme(
+          labelMedium: TextStyle(
+              fontSize: 15,
+              fontWeight: FontWeight.bold,
+              color: Color.fromRGBO(31, 79, 143, 1.0)),
+
+// this is for App Bar
+          titleLarge: TextStyle(
+              fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),
+        )),
+        home: const Signin()
+        // HomeScreen
+        );
+  }
+}
