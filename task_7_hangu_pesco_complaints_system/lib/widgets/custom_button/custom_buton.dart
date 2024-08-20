@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hangu_pesco_complaints_system/core/color/color.dart';
+import 'package:hangu_pesco_complaints_system/core/colors/colors.dart';
 
 class CustomButton extends StatelessWidget {
   final VoidCallback onPressed;
