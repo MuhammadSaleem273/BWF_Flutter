@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:hangu_pesco_complaints_system/admin_screens/accepted_complaints.dart';
 import 'package:hangu_pesco_complaints_system/admin_screens/pending_compliants.dart';
 import 'package:hangu_pesco_complaints_system/admin_screens/emergency_complaints.dart';
-import 'package:hangu_pesco_complaints_system/core/color/color.dart';
-import 'package:hangu_pesco_complaints_system/core/color/paths/images_paths.dart';
+import 'package:hangu_pesco_complaints_system/core/colors/colors.dart';
+import 'package:hangu_pesco_complaints_system/core/paths/images_paths.dart';
 import 'package:hangu_pesco_complaints_system/widgets/custom_card/custom_card_component.dart';
 
 class AdminHome extends StatelessWidget {

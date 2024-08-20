@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hangu_pesco_complaints_system/core/color/color.dart';
+import 'package:hangu_pesco_complaints_system/core/colors/colors.dart';
 import 'package:hangu_pesco_complaints_system/user_screens/complaint_screens/other_complaints.dart';
 import 'package:hangu_pesco_complaints_system/widgets/custom_button/custom_buton.dart';
 import 'package:hangu_pesco_complaints_system/user_screens/complaint_screens/bill_complaints.dart';

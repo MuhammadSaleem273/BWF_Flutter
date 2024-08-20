@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:hangu_pesco_complaints_system/authentication/sign_in/sign_in.dart';
-import 'package:hangu_pesco_complaints_system/core/color/color.dart';
+import 'package:hangu_pesco_complaints_system/core/colors/colors.dart';
 import 'dart:async';
 
-import 'package:hangu_pesco_complaints_system/core/color/paths/images_paths.dart';
+import 'package:hangu_pesco_complaints_system/core/paths/images_paths.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});

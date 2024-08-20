@@ -53,10 +53,10 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyCh5H1aITAcZD3Ai7hdXD0bRuvkFGziKF4',
-    appId: '1:76455324551:android:1fe470a40b98a81a8b8122',
-    messagingSenderId: '76455324551',
-    projectId: 'expanse-tracker-app-404e8',
-    storageBucket: 'expanse-tracker-app-404e8.appspot.com',
+    apiKey: 'AIzaSyCCvWh01YPabBEKR-fRP3bmadiej73tZ5w',
+    appId: '1:610678533078:android:569acac6db678113ded277',
+    messagingSenderId: '610678533078',
+    projectId: 'expanse-tracker-app-a922b',
+    storageBucket: 'expanse-tracker-app-a922b.appspot.com',
   );
 }

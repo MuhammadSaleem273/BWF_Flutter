@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hangu_pesco_complaints_system/core/color/color.dart';
+import 'package:hangu_pesco_complaints_system/core/colors/colors.dart';
 import 'package:hangu_pesco_complaints_system/user_screens/user_home/all_home_screens/complaints_types.dart';
 
 void main() async {

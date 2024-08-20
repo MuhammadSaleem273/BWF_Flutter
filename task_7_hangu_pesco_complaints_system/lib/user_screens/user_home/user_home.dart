@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:hangu_pesco_complaints_system/core/color/color.dart';
-import 'package:hangu_pesco_complaints_system/core/color/paths/images_paths.dart';
+import 'package:hangu_pesco_complaints_system/core/colors/colors.dart';
+import 'package:hangu_pesco_complaints_system/core/paths/images_paths.dart';
 
 import 'package:hangu_pesco_complaints_system/widgets/custom_card/custom_card_component.dart';
 import 'package:hangu_pesco_complaints_system/user_screens/user_home/all_home_screens/about_us_screen.dart';

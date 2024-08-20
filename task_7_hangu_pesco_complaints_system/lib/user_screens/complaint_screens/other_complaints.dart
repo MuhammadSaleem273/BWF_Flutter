@@ -1,9 +1,9 @@
 // import 'dart:js';
 
 import 'package:flutter/material.dart';
+import 'package:hangu_pesco_complaints_system/core/colors/colors.dart';
 import 'package:hangu_pesco_complaints_system/widgets/custom_button/custom_buton.dart';
 import 'package:hangu_pesco_complaints_system/widgets/drop_down_menu/meter_complaints_dropdown_menu.dart';
-import 'package:hangu_pesco_complaints_system/widgets/uihelper.dart';
 import 'package:hangu_pesco_complaints_system/widgets/complaint_image_packer/complaint_image_packer.dart';
 
 class OtherComplaints extends StatefulWidget {
@@ -87,7 +87,7 @@ class _OtherComplaintsState extends State<OtherComplaints> {
             "Complaint Registration",
             style: Theme.of(context).textTheme.titleLarge,
           ),
-          backgroundColor: const Color.fromRGBO(31, 79, 143, 1.0),
+          backgroundColor: primaryColor,
           centerTitle: true,
           leading: IconButton(
               onPressed: () {
@@ -237,7 +237,7 @@ class _OtherComplaintsState extends State<OtherComplaints> {
                       ),
                       SizedBox(height: mediaquery.height * .02),
 
-// this is (text headings) for image
+                      // this is (text headings) for image
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 10),
                         child: Row(

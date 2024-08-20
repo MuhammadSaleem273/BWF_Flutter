@@ -1,7 +1,7 @@
 // ignore_for_file: empty_statements, dead_code
 
 import 'package:flutter/material.dart';
-import 'package:hangu_pesco_complaints_system/core/color/color.dart';
+import 'package:hangu_pesco_complaints_system/core/colors/colors.dart';
 
 class MyComplaints extends StatelessWidget {
   const MyComplaints({super.key});
