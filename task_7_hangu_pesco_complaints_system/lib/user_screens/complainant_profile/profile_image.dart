@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:hangu_pesco_complaints_system/core/color/color.dart';
 import 'package:image_picker/image_picker.dart';
 
 class UserProfile extends StatefulWidget {
@@ -22,7 +23,7 @@ class _UserProfileState extends State<UserProfile> {
             "Profile",
             style: Theme.of(context).textTheme.titleLarge,
           ),
-          backgroundColor: const Color.fromRGBO(31, 79, 143, 1.0),
+          backgroundColor: primaryColor,
           centerTitle: true,
           leading: IconButton(
               onPressed: () {
@@ -64,7 +65,7 @@ class _UserProfileState extends State<UserProfile> {
 
   void showImagePickerOption(BuildContext context) {
     showModalBottomSheet(
-      backgroundColor: const Color.fromRGBO(31, 79, 143, 1.0),
+      backgroundColor: primaryColor,
       context: context,
       builder: (builder) {
         return Padding(

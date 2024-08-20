@@ -19,8 +19,8 @@ class MyCard extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: SizedBox(
-        height: size.height * 0.18,
-        width: size.width <= 600 ? size.width * 0.45 : size.width * 0.3, // Adjust width for larger screens
+        height: size.height * 0.21,
+        width: size.width <= 600 ? size.width * 0.45 : size.width * 0.3,
         child: Card(
           elevation: 6,
           shadowColor: const Color.fromRGBO(31, 79, 143, 1.0),
@@ -32,8 +32,8 @@ class MyCard extends StatelessWidget {
             children: [
               Image.asset(
                 imagePath,
-                height: size.height * 0.1, // Adjust image height based on card height
-                width: size.width * 0.2, // Adjust image width based on card width
+                height: size.height * 0.1,
+                width: size.width * 0.2,
               ),
               const SizedBox(height: 8.0),
               Text(

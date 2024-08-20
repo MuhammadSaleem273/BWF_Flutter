@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:hangu_pesco_complaints_system/core/color/color.dart';
+import 'package:hangu_pesco_complaints_system/core/color/paths/images_paths.dart';
 
-import 'package:hangu_pesco_complaints_system/components/custom_card_component.dart';
+import 'package:hangu_pesco_complaints_system/widgets/custom_card/custom_card_component.dart';
 import 'package:hangu_pesco_complaints_system/user_screens/user_home/all_home_screens/about_us_screen.dart';
 import 'package:hangu_pesco_complaints_system/user_screens/user_home/all_home_screens/complaints_types.dart';
 import 'package:hangu_pesco_complaints_system/user_screens/user_home/all_home_screens/contact_us_screen.dart';
 import 'package:hangu_pesco_complaints_system/user_screens/user_home/all_home_screens/my_complaints.dart';
-import 'package:hangu_pesco_complaints_system/user_screens/user_profile/profile_image.dart';
+import 'package:hangu_pesco_complaints_system/user_screens/complainant_profile/profile_image.dart';
 
 
 class UserHome extends StatelessWidget {
@@ -21,7 +23,7 @@ class UserHome extends StatelessWidget {
             "Home",
             style: Theme.of(context).textTheme.titleLarge,
           ),
-          backgroundColor: const Color.fromRGBO(31, 79, 143, 1.0),
+          backgroundColor: primaryColor,
           centerTitle: true,
           leading: IconButton(
               onPressed: () {
@@ -47,9 +49,9 @@ class UserHome extends StatelessWidget {
                   // height: 80,
                   height: mediaquery.height * .1,
                   width: double.infinity,
-                  decoration: const BoxDecoration(
-                    color: Color.fromRGBO(31, 79, 143, 1.0),
-                    borderRadius: BorderRadius.only(
+                  decoration:  BoxDecoration(
+                    color: primaryColor,
+                    borderRadius: const BorderRadius.only(
                         bottomLeft: Radius.circular(20),
                         bottomRight: Radius.circular(20)),
                   ),
@@ -68,18 +70,18 @@ class UserHome extends StatelessWidget {
                     child: Card(
                         elevation: 6,
                         child: Image.asset(
-                          "asset/logo.png",
+                          logo,
                         )),
                   ),
                 )
               ]),
             ),
-            const Text(
+             Text(
               "Hangu PESCO Complaints System",
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.w800,
-                color: Color.fromRGBO(31, 79, 143, 1.0),
+                color: primaryColor,
               ),
             ),
 // ist row it consists of two custom cards/buttons
@@ -88,7 +90,7 @@ class UserHome extends StatelessWidget {
               children: [
                 //ist component
                 MyCard(
-                  imagePath: "asset/post_complaints.png",
+                  imagePath: postComplaints,
                   text: "Post Complaints",
                   onTap: () {
                     Navigator.push(
@@ -102,7 +104,7 @@ class UserHome extends StatelessWidget {
 
                 // 2nd component for My Complaints
                 MyCard(
-                  imagePath: "asset/my_complaints.png",
+                  imagePath: myComplaints,
                   text: "My Complaints ",
                   onTap: () {
                     Navigator.push(
@@ -124,7 +126,7 @@ class UserHome extends StatelessWidget {
               children: [
                 //3rd component for About us
                 MyCard(
-                  imagePath: "asset/about_us.png",
+                  imagePath: aboutUs,
                   text: "About Us",
                   onTap: () {
                     Navigator.push(
@@ -139,7 +141,7 @@ class UserHome extends StatelessWidget {
 
                 // 4th component for Contact us
                 MyCard(
-                  imagePath: "asset/contact_us.png",
+                  imagePath: contactUs,
                   text: "Contact US ",
                   onTap: () {
                     Navigator.push(

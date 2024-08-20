@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:hangu_pesco_complaints_system/user_screens/login_screen/signin.dart';
+import 'package:hangu_pesco_complaints_system/core/color/color.dart';
+import 'package:hangu_pesco_complaints_system/user_screens/user_home/all_home_screens/complaints_types.dart';
 
 void main() async {
   runApp(const MyApp());
@@ -16,21 +17,22 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-            //this style is for all complints screns lables just at upper at the teh textfield
-            textTheme: const TextTheme(
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        //this style is for all complints screns lables just at upper at the teh textfield
+        textTheme: TextTheme(
           labelMedium: TextStyle(
-              fontSize: 15,
-              fontWeight: FontWeight.bold,
-              color: Color.fromRGBO(31, 79, 143, 1.0)),
+            fontSize: 15,
+            fontWeight: FontWeight.bold,
+            color: primaryColor,
+          ),
 
-// this is for App Bar
-          titleLarge: TextStyle(
+          // this is for App Bar
+          titleLarge: const TextStyle(
               fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),
-        )),
-        home: const Signin()
-        // HomeScreen
-        );
+        ),
+      ),
+      home: ComplaintsTypes(),
+    );
   }
 }

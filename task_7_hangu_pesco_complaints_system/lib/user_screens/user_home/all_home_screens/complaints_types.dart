@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:hangu_pesco_complaints_system/components/uihelper.dart';
+import 'package:hangu_pesco_complaints_system/core/color/color.dart';
+import 'package:hangu_pesco_complaints_system/user_screens/complaint_screens/other_complaints.dart';
+import 'package:hangu_pesco_complaints_system/widgets/custom_button/custom_buton.dart';
 import 'package:hangu_pesco_complaints_system/user_screens/complaint_screens/bill_complaints.dart';
 import 'package:hangu_pesco_complaints_system/user_screens/complaint_screens/theft_complaints.dart';
-import 'package:hangu_pesco_complaints_system/user_screens/complaint_screens/other_complaints.dart';
 
 class ComplaintsTypes extends StatelessWidget {
   const ComplaintsTypes({super.key});
@@ -17,7 +18,7 @@ class ComplaintsTypes extends StatelessWidget {
             "HPCS",
             style: Theme.of(context).textTheme.titleLarge,
           ),
-          backgroundColor: const Color.fromRGBO(31, 79, 143, 1.0),
+          backgroundColor: primaryColor,
           centerTitle: true,
           leading: IconButton(
               onPressed: () {
@@ -34,8 +35,8 @@ class ComplaintsTypes extends StatelessWidget {
             children: [
               // 1 text for  Bottun  bill complaints
 
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 30),
+               Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 30),
                 child: Row(
                   children: [
                     Text(
@@ -43,10 +44,10 @@ class ComplaintsTypes extends StatelessWidget {
                       style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
-                          color: Color.fromRGBO(31, 79, 143, 1.0)),
+                          color:primaryColor),
                     ),
-                    Expanded(child: SizedBox()),
-                    Text(
+                    const Expanded(child: SizedBox()),
+                    const Text(
                       "بلوں سے متعلق شکایت",
                       style: TextStyle(
                           fontSize: 16,
@@ -64,14 +65,14 @@ class ComplaintsTypes extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 10),
                 child: SizedBox(
-                  child: UiHelper.customButton(() {
-                    Navigator.push(
+                  child: CustomButton(onPressed: (){
+                     Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder: (context) => const BillComplaint(),
                       ),
                     );
-                  }, "Bill Complaint"),
+                  }, text: 'Bill Complaint')
                 ),
               ),
 
@@ -82,8 +83,8 @@ class ComplaintsTypes extends StatelessWidget {
 
               // 2 Button"Post theft complaint",
 
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 30),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 30),
                 child: Row(
                   children: [
                     Text(
@@ -91,15 +92,15 @@ class ComplaintsTypes extends StatelessWidget {
                       style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
-                          color: Color.fromRGBO(31, 79, 143, 1.0)),
+                          color: primaryColor),
                     ),
-                    Expanded(child: SizedBox()),
+                    const Expanded(child: SizedBox()),
                     Text(
                       "بجلی چوری کی شکایت",
                       style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
-                          color: Color.fromRGBO(31, 79, 143, 1.0)),
+                          color: primaryColor),
                     ),
                   ],
                 ),
@@ -112,15 +113,16 @@ class ComplaintsTypes extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 10),
                 child: SizedBox(
-                  child: UiHelper.customButton(() {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const TheftComplaint(),
-                      ),
-                    );
-                  }, " Theft Reporting"),
-                ),
+                    child: CustomButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const TheftComplaint(),
+                            ),
+                          );
+                        },
+                        text: 'Theft Reporting')),
               ),
 
               SizedBox(
@@ -129,8 +131,8 @@ class ComplaintsTypes extends StatelessWidget {
               ),
 
               //  text writting for other complaints button 3
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 30),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 30),
                 child: Row(
                   children: [
                     Text(
@@ -138,15 +140,15 @@ class ComplaintsTypes extends StatelessWidget {
                       style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
-                          color: Color.fromRGBO(31, 79, 143, 1.0)),
+                          color: primaryColor),
                     ),
-                    Expanded(child: SizedBox()),
+                    const Expanded(child: SizedBox()),
                     Text(
                       "    دوسری شکایتیں",
                       style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
-                          color: Color.fromRGBO(31, 79, 143, 1.0)),
+                          color: primaryColor),
                     ),
                   ],
                 ),
@@ -160,15 +162,16 @@ class ComplaintsTypes extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 10),
                 child: SizedBox(
-                  child: UiHelper.customButton(() {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const OtherComplaints(),
-                      ),
-                    );
-                  }, "Other Compliants"),
-                ),
+                    child: CustomButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const OtherComplaints(),
+                            ),
+                          );
+                        },
+                        text: 'Other Complaints')),
               )
             ],
           ),

@@ -1,6 +1,7 @@
 // ignore_for_file: empty_statements, dead_code
 
 import 'package:flutter/material.dart';
+import 'package:hangu_pesco_complaints_system/core/color/color.dart';
 
 class MyComplaints extends StatelessWidget {
   const MyComplaints({super.key});
@@ -14,7 +15,7 @@ class MyComplaints extends StatelessWidget {
             "My Complaints",
             style: Theme.of(context).textTheme.titleLarge,
           ),
-          backgroundColor: const Color.fromRGBO(31, 79, 143, 1.0),
+          backgroundColor: primaryColor,
           centerTitle: true,
           leading: IconButton(
               onPressed: () {

@@ -1,9 +1,10 @@
 // import 'dart:js';
 
 import 'package:flutter/material.dart';
-import 'package:hangu_pesco_complaints_system/components/meter_complaints_dropdown_menu.dart';
-import 'package:hangu_pesco_complaints_system/components/uihelper.dart';
-import 'package:hangu_pesco_complaints_system/components/complaint_image.dart';
+import 'package:hangu_pesco_complaints_system/widgets/custom_button/custom_buton.dart';
+import 'package:hangu_pesco_complaints_system/widgets/drop_down_menu/meter_complaints_dropdown_menu.dart';
+import 'package:hangu_pesco_complaints_system/widgets/uihelper.dart';
+import 'package:hangu_pesco_complaints_system/widgets/complaint_image_packer/complaint_image_packer.dart';
 
 class OtherComplaints extends StatefulWidget {
   const OtherComplaints({Key? key}) : super(key: key);
@@ -23,8 +24,7 @@ class _OtherComplaintsState extends State<OtherComplaints> {
   final _formKey = GlobalKey<FormState>();
 
   Widget _buildTextField(
-      {
-        String? hintText,
+      {String? hintText,
       TextEditingController? controller,
       int? maxLines = 1,
       TextInputType? keyboardType}) {
@@ -35,10 +35,8 @@ class _OtherComplaintsState extends State<OtherComplaints> {
         textAlign: TextAlign.start,
         maxLines: maxLines,
         keyboardType: keyboardType,
-        
         decoration: InputDecoration(
           helperText: "",
-          
           hintText: hintText,
           border: OutlineInputBorder(),
         ),
@@ -107,8 +105,6 @@ class _OtherComplaintsState extends State<OtherComplaints> {
                     children: [
                       SizedBox(height: mediaquery.height * .02),
                       const MeterComplaintsMenu(),
-
-                 
 
                       SizedBox(height: mediaquery.height * .02),
                       Padding(
@@ -281,16 +277,9 @@ class _OtherComplaintsState extends State<OtherComplaints> {
                 ),
               ),
             ),
-            //the below area shoud be fixed (not scrollable)
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 50.0),
-              child: Container(
-                alignment: Alignment.bottomCenter,
-                child: UiHelper.customButton(_submitForm, 'Submit'),
-                // UiHelper.customButton(() {
-                //   _submitForm;
-                // }, 'Submit'),
-              ),
+            CustomButton(
+              onPressed: _submitForm,
+              text: 'Submit',
             ),
             const SizedBox(
               height: 5,

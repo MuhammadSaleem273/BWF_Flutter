@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:hangu_pesco_complaints_system/components/uihelper.dart';
-import 'package:hangu_pesco_complaints_system/components/uihelper.dart';
+import 'package:hangu_pesco_complaints_system/core/color/color.dart';
+import 'package:hangu_pesco_complaints_system/core/color/paths/images_paths.dart';
+import 'package:hangu_pesco_complaints_system/widgets/custom_button/custom_buton.dart';
+import 'package:hangu_pesco_complaints_system/widgets/custom_textfield/custom_textfield.dart';
 
 class Signin extends StatefulWidget {
   const Signin({super.key});
@@ -29,9 +31,9 @@ class _SigninState extends State<Signin> {
                   Container(
                     height: MediaQuery.of(context).size.height * .35,
                     width: double.infinity,
-                    color: const Color.fromRGBO(31, 79, 143, 1.0),
+                    color: primaryColor,
                     child: Image.asset(
-                      "asset/logo.png",
+                      logo,
                     ),
                   ),
                   Positioned(
@@ -68,11 +70,16 @@ class _SigninState extends State<Signin> {
                                     ),
                                   )),
                             ),
-                            UiHelper.customTextField(
-                                namecontroller, "Name", Icons.person, false),
-                            UiHelper.customTextField(
-                                phonecontroller, "Phone", Icons.phone, false),
-                            UiHelper.customButton(() {}, "Send OTP")
+                            CustomTextfield(
+                              hinttext: 'Name',
+                              controller: namecontroller,
+                              icon: Icons.person,
+                            ),
+                            CustomTextfield(
+                                hinttext: 'Phone Number',
+                                controller: phonecontroller,
+                                icon: Icons.phone),
+                            CustomButton(onPressed: () {}, text: 'Send OTP')
                           ],
                         ),
                       ))

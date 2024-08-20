@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:hangu_pesco_complaints_system/admin_screens/accepted_complaints.dart';
 import 'package:hangu_pesco_complaints_system/admin_screens/pending_compliants.dart';
 import 'package:hangu_pesco_complaints_system/admin_screens/emergency_complaints.dart';
-import 'package:hangu_pesco_complaints_system/components/custom_card_component.dart';
+import 'package:hangu_pesco_complaints_system/core/color/color.dart';
+import 'package:hangu_pesco_complaints_system/core/color/paths/images_paths.dart';
+import 'package:hangu_pesco_complaints_system/widgets/custom_card/custom_card_component.dart';
 
 class AdminHome extends StatelessWidget {
   const AdminHome({super.key});
@@ -18,7 +20,7 @@ class AdminHome extends StatelessWidget {
             "Home",
             style: Theme.of(context).textTheme.titleLarge,
           ),
-          backgroundColor: const Color.fromRGBO(31, 79, 143, 1.0),
+          backgroundColor: primaryColor,
           centerTitle: true,
         ),
         body: Column(
@@ -35,9 +37,9 @@ class AdminHome extends StatelessWidget {
                   height: mediaquery.height * .1,
 
                   width: double.infinity,
-                  decoration: const BoxDecoration(
-                    color: Color.fromRGBO(31, 79, 143, 1.0),
-                    borderRadius: BorderRadius.only(
+                  decoration:  BoxDecoration(
+                    color: primaryColor,
+                    borderRadius: const BorderRadius.only(
                         bottomLeft: Radius.circular(20),
                         bottomRight: Radius.circular(20)),
                   ),
@@ -58,19 +60,19 @@ class AdminHome extends StatelessWidget {
                     child: Card(
                         elevation: 6,
                         child: Image.asset(
-                          "asset/logo.png",
+                          logo,
                         )),
                   ),
                 )
               ]),
             ),
 
-            const Text(
+             Text(
               "Hangu PESCO Complaints System",
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.w800,
-                color: Color.fromRGBO(31, 79, 143, 1.0),
+                color: primaryColor,
               ),
             ),
 
@@ -79,7 +81,7 @@ class AdminHome extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 MyCard(
-                  imagePath: "asset/pending_complaints.png",
+                  imagePath: pendingComplaints,
                   text: "Pending\nComplaints",
                   onTap: () {
                     Navigator.push(
@@ -93,13 +95,13 @@ class AdminHome extends StatelessWidget {
 
                 // 2nd component for My Complaints
                 MyCard(
-                  imagePath: "asset/accepted_complaints.png",
+                  imagePath: acceptedComplaints,
                   text: "Accepted\nComplaints",
                   onTap: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const AcceptedComplaints(),
+                        builder: (context) =>  AcceptedComplaints(),
                       ),
                     );
                   },
@@ -115,13 +117,25 @@ class AdminHome extends StatelessWidget {
               children: [
                 //3rd component for About us
                 MyCard(
-                  imagePath: "asset/rejected_complaints.png",
-                  text: "Rejected\nComplaints",
+                  imagePath: emergencyComplaints,
+                  text: "Emergency\nComplaints",
                   onTap: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder: (context) => const EmergencyComplaints(),
+                      ),
+                    );
+                  },
+                ),
+                 MyCard(
+                  imagePath: acceptedComplaints,
+                  text: "Meter\nRequest",
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) =>  AcceptedComplaints(),
                       ),
                     );
                   },

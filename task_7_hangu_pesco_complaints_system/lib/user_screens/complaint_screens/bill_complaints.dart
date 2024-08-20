@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:hangu_pesco_complaints_system/components/uihelper.dart';
-import 'package:hangu_pesco_complaints_system/components/complaint_image.dart';
+import 'package:hangu_pesco_complaints_system/core/color/color.dart';
+import 'package:hangu_pesco_complaints_system/widgets/custom_button/custom_buton.dart';
+import 'package:hangu_pesco_complaints_system/widgets/uihelper.dart';
+import 'package:hangu_pesco_complaints_system/widgets/complaint_image_packer/complaint_image_packer.dart';
 
 class BillComplaint extends StatefulWidget {
   const BillComplaint({Key? key}) : super(key: key);
@@ -35,10 +37,8 @@ class _BillComplaintState extends State<BillComplaint> {
         keyboardType: keyboardType,
         decoration: InputDecoration(
           helperText: "",
-          // filled: true,
-          // fillColor: Colors.black.withOpacity(0.1),
           hintText: hintText,
-          border:OutlineInputBorder(),
+          border: OutlineInputBorder(),
         ),
         validator: (value) {
           if (value == null || value.isEmpty) {
@@ -87,7 +87,7 @@ class _BillComplaintState extends State<BillComplaint> {
             "Complaint Registration",
             style: Theme.of(context).textTheme.titleLarge,
           ),
-          backgroundColor: const Color.fromRGBO(31, 79, 143, 1.0),
+          backgroundColor: primaryColor,
           centerTitle: true,
           leading: IconButton(
               onPressed: () {
@@ -274,7 +274,7 @@ class _BillComplaintState extends State<BillComplaint> {
                       ),
                       SizedBox(height: mediaquery.height * .02),
 
-// this is (text headings) for image
+                      // this is (text headings) for image
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 10),
                         child: Row(
@@ -314,17 +314,7 @@ class _BillComplaintState extends State<BillComplaint> {
                 ),
               ),
             ),
-           
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 50),
-              child: Container(
-                alignment: Alignment.bottomCenter,
-                child: UiHelper.customButton(_submitForm, 'Submit'),
-                // UiHelper.customButton(() {
-                //   _submitForm;
-                // }, 'Submit'),
-              ),
-            ),
+            CustomButton(onPressed: _submitForm, text: 'Submit'),
             const SizedBox(
               height: 5,
             )

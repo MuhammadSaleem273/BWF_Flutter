@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:hangu_pesco_complaints_system/core/color/color.dart';
 
+// ignore: must_be_immutable
 class AcceptedComplaints extends StatelessWidget {
-  const AcceptedComplaints({super.key});
-
+   AcceptedComplaints({super.key});
+TextEditingController namecontroller=TextEditingController();
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -12,7 +14,7 @@ class AcceptedComplaints extends StatelessWidget {
             "Accepted Complaints",
             style: Theme.of(context).textTheme.titleLarge,
           ),
-          backgroundColor: const Color.fromRGBO(31, 79, 143, 1.0),
+          backgroundColor:primaryColor ,
           centerTitle: true,
           leading: IconButton(
               onPressed: () {
@@ -20,8 +22,12 @@ class AcceptedComplaints extends StatelessWidget {
               },
               icon: const Icon(Icons.arrow_back, color: Colors.white)),
         ),
-        body: const Center(
-          child: Text('Accepted complaints will show here'),
+        body:  const Column(
+          children:  [
+            Center(
+              child: Text('Accepted complaints will show here'),
+            ),
+          ],
         ),
       ),
     );

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:hangu_pesco_complaints_system/components/uihelper.dart';
-import 'package:hangu_pesco_complaints_system/components/complaint_image.dart';
+import 'package:hangu_pesco_complaints_system/widgets/custom_button/custom_buton.dart';
+import 'package:hangu_pesco_complaints_system/widgets/complaint_image_packer/complaint_image_packer.dart';
 
 class TheftComplaint extends StatefulWidget {
   const TheftComplaint({Key? key}) : super(key: key);
@@ -32,7 +32,6 @@ class _TheftComplaintState extends State<TheftComplaint> {
         keyboardType: keyboardType,
         decoration: InputDecoration(
           helperText: "",
-         
           hintText: hintText,
           border: OutlineInputBorder(),
         ),
@@ -231,16 +230,9 @@ class _TheftComplaintState extends State<TheftComplaint> {
                 ),
               ),
             ),
-            //the below area shoud be fixed (not scrollable)
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 50.0),
-              child: Container(
-                alignment: Alignment.bottomCenter,
-                child: UiHelper.customButton(_submitForm, 'Submit'),
-                // UiHelper.customButton(() {
-                //   _submitForm;
-                // }, 'Submit'),
-              ),
+            CustomButton(
+              onPressed: _submitForm,
+              text: 'Submit',
             ),
             const SizedBox(
               height: 5,

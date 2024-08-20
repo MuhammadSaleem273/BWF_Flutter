@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:hangu_pesco_complaints_system/authentication/sign_in/sign_in.dart';
+import 'package:hangu_pesco_complaints_system/core/color/color.dart';
 import 'dart:async';
 
-import 'package:hangu_pesco_complaints_system/user_screens/signup_screen/signup.dart';
+import 'package:hangu_pesco_complaints_system/core/color/paths/images_paths.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -16,9 +18,8 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     Future.delayed(const Duration(seconds: 2), () {
-      // Navigate to HomeScreen after 5 seconds
       Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (context) => const SignUp()));
+          context, MaterialPageRoute(builder: (context) => const Signin()));
     });
   }
 
@@ -31,26 +32,14 @@ class _SplashScreenState extends State<SplashScreen> {
             "HPCS",
             style: Theme.of(context).textTheme.titleLarge,
           ),
-          backgroundColor: const Color.fromRGBO(31, 79, 143, 1.0),
+          backgroundColor: primaryColor,
           centerTitle: true,
         ),
         body: Center(
-          child: Container(
-            width: 300,
-            height: 300,
-            padding: const EdgeInsets.all(5.5),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(150),
-              border: Border.all(
-                width: 3,
-                color: const Color.fromRGBO(31, 79, 143, 1.0),
-              ),
-            ),
-            child: ClipRRect(
-              child: Image.asset(
-                "asset/logo.png",
-                fit: BoxFit.contain,
-              ),
+          child: ClipRRect(
+            child: Image.asset(
+              logo,
+              fit: BoxFit.contain,
             ),
           ),
         ),
